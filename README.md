@@ -2,6 +2,8 @@
 
 Qwen3-VL-abliterated-MAX-Fast is an experimental, unredacted visual reasoning and optical character recognition suite. Powered by the specialized `prithivMLmods/Qwen3-VL-4B-Instruct-Unredacted-MAX` model, this application provides an uncensored, highly capable environment for profound image analysis, detailed scene description, and raw text extraction. The suite is wrapped in a bespoke, responsive web interface built with custom HTML, CSS, and JavaScript, facilitating a seamless drag-and-drop workflow for media uploads. Fully optimized for CUDA-enabled GPUs utilizing Flash Attention 3, Qwen3-VL-abliterated-MAX-Fast grants developers and researchers unrestricted control over generation parameters, making it an ideal sandbox for testing raw, unfiltered multimodal AI capabilities.
 
+ <img width="1920" height="1720" alt="Screenshot 2026-03-23 at 18-59-16 Qwen3-VL-abliterated-MAX-Fast - a Hugging Face Space by prithivMLmods" src="https://github.com/user-attachments/assets/9136f9d1-47bb-44e7-aaec-5c0bf453d877" />
+
 ### **Key Features**
 
 * **Unredacted Model Architecture:** Utilizes a specifically tuned, unredacted version of Qwen3-VL-4B-Instruct, designed for raw visual understanding and uncensored image-to-text generation.

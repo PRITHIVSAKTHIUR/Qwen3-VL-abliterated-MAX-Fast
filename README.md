@@ -1,16 +1,16 @@
-# **Qwen3-VL-abliterated-MAX-Fast**
+# **[Qwen3-VL-abliterated-MAX-Fast](https://huggingface.co/spaces/prithivMLmods/Qwen3-VL-abliterated-MAX-Fast)**
 
-Qwen3-VL-abliterated-MAX-Fast is an experimental, unredacted visual reasoning and optical character recognition suite. Powered by the specialized `prithivMLmods/Qwen3-VL-4B-Instruct-Unredacted-MAX` model, this application provides an uncensored, highly capable environment for profound image analysis, detailed scene description, and raw text extraction. The suite is wrapped in a bespoke, responsive web interface built with custom HTML, CSS, and JavaScript, facilitating a seamless drag-and-drop workflow for media uploads. Fully optimized for CUDA-enabled GPUs utilizing Flash Attention 3, Qwen3-VL-abliterated-MAX-Fast grants developers and researchers unrestricted control over generation parameters, making it an ideal sandbox for testing raw, unfiltered multimodal AI capabilities.
+Qwen3-VL-abliterated-MAX-Fast is an experimental, high-performance visual reasoning and optical character recognition (OCR) workspace. Powered by the unredacted `prithivMLmods/Qwen3-VL-4B-Instruct-Unredacted-MAX` architecture, this suite is designed to deliver uncensored, raw image-to-text processing, precise text transcription, and intricate scene understanding. The web application features a standalone, custom-engineered interface built on vanilla web technologies via a headless Gradio framework. It provides a drag-and-drop media drop zone, inline state validation notifications, and a real-time raw output token stream. Optimized to harness active GPU acceleration with Flash Attention 2, it allows developers and security researchers to completely bypass structural system guardrails during complex visual reasoning evaluations.
 
  <img width="1920" height="1720" alt="Screenshot 2026-03-23 at 18-59-16 Qwen3-VL-abliterated-MAX-Fast - a Hugging Face Space by prithivMLmods" src="https://github.com/user-attachments/assets/9136f9d1-47bb-44e7-aaec-5c0bf453d877" />
 
 ### **Key Features**
 
-* **Unredacted Model Architecture:** Utilizes a specifically tuned, unredacted version of Qwen3-VL-4B-Instruct, designed for raw visual understanding and uncensored image-to-text generation.
-* **Custom User Interface:** Features a bespoke, highly responsive Gradio frontend. It includes a sleek drag-and-drop media zone, real-time output text streaming, and an integrated advanced settings panel.
-* **Granular Inference Controls:** Fine-tune the AI's output by manually adjusting text generation parameters such as Maximum New Tokens, Temperature, Top-p, Top-k, and Repetition Penalty.
-* **Output Management:** Built-in utility actions allow users to instantly copy the raw output text to their clipboard or save the generated response directly as a local `.txt` file.
-* **Flash Attention 3 Integration:** Employs `kernels-community/flash-attn3` for maximized, memory-efficient inference speeds on compatible modern GPU hardware.
+* **Abliterated Vision Engine:** Utilizes an unredacted version of the Qwen3-VL-4B-Instruct model to secure unrestricted vision-language processing and uncensored textual rendering from image inputs.
+* **Custom Headless Interface:** Houses a sleek, dark terminal-inspired frontend layout designed with embedded JavaScript handling for real-time asset syncing and dynamic UI state response.
+* **Streaming Token Output:** Displays responses step-by-step using text streamer loops that push chunks directly onto the output viewport as they are decoded by the transformer.
+* **Advanced Pipeline Controls:** Offers modular option parameters to manually fine-tune token parameters including Maximum New Tokens, Temperature, Top-p, Top-k, and Repetition Penalty.
+* **Streamlined Export Utilities:** Equipped with built-in instant click tools to quickly copy the entire output text block to the clipboard or download the raw layout response as a clean `.txt` file.
 
 ### **Repository Structure**
 
@@ -21,22 +21,68 @@ Qwen3-VL-abliterated-MAX-Fast is an experimental, unredacted visual reasoning an
 ├── app.py
 ├── LICENSE.txt
 ├── pre-requirements.txt
+├── pyproject.toml
 ├── README.md
 └── requirements.txt
+
 ```
 
 ### **Installation and Requirements**
 
-To run Qwen3-VL-abliterated-MAX-Fast locally, you need to configure a Python environment with the following dependencies. Ensure you have a compatible CUDA-enabled GPU for optimal performance.
+To configure Qwen3-VL-abliterated-MAX-Fast locally, set up an environment with the dependencies listed below. A system containing a modern, CUDA-compatible GPU is required for optimal inference speeds and Flash Attention execution.
+
+#### **Standard PIP Installation**
 
 **1. Install Pre-requirements**
-Run the following command to update pip to the required version:
+Ensure your local package manager is upgraded to align with modern build conditions:
+
 ```bash
-pip install pip>=23.0.0
+pip install pip>=26.1
+
 ```
 
-**2. Install Core Requirements**
-Install the necessary machine learning and UI libraries. You can place these in a `requirements.txt` file and run `pip install -r requirements.txt`.
+**2. Install Core Dependencies**
+Install the core deep learning stack, web layers, and document processing utilities:
+
+```bash
+pip install -r requirements.txt
+
+```
+
+#### **Running with `uv` (Recommended)**
+
+`uv` is an ultra-fast Python package and project manager written in Rust, which guarantees rapid virtual environment setup and deterministic dependency syncing.
+
+**Step 1 — Install `uv**`
+
+* **macOS / Linux:** `curl -LsSf https://astral.sh/uv/install.sh | sh`
+* **Windows:** `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
+
+**Step 2 — Clone the repository**
+
+```bash
+git clone https://github.com/PRITHIVSAKTHIUR/Qwen3-VL-abliterated-MAX-Fast.git
+cd Qwen3-VL-abliterated-MAX-Fast
+
+```
+
+**Step 3 — Initialize the project and install dependencies**
+
+```bash
+uv sync
+
+```
+
+**Step 4 — Run the script**
+
+```bash
+uv run app.py
+
+```
+
+### **Core Requirements List**
+
+The application builds on the following core dependencies (defined in `requirements.txt`):
 
 ```text
 git+https://github.com/huggingface/transformers.git@v4.57.6
@@ -47,7 +93,7 @@ huggingface_hub
 qwen-vl-utils
 sentencepiece
 opencv-python
-torch==2.8.0
+torch==2.11.0
 torchvision
 matplotlib
 pdf2image
@@ -57,22 +103,23 @@ kernels
 hf_xet
 spaces
 pillow
-gradio
+gradio==6.15.0
 fpdf
 timm
 av
+
 ```
 
 ### **Usage**
 
-Once your environment is set up and the dependencies are installed, you can launch the application by running the main Python script:
+Once the FastAPI web layout initiates, load the app locally by pointing your browser to the terminal endpoint (typically `http://127.0.0.1:7860/`).
 
-```bash
-python app.py
-```
-
-After the script initializes the interface, it will provide a local web address (usually `http://127.0.0.1:7860/`) which you can open in your browser to interact with the model. Note that the model will be downloaded and loaded into VRAM upon its first invocation.
+1. **Upload Asset:** Drop an asset sheet, image document, page screenshot, or scene file into the dashed orange uploader area.
+2. **Write Instruction:** Type a descriptive instruction directive inside the **Query Input** box (e.g., *"Read all visible text in the image"* or *"Describe the image in detail"*).
+3. **Advanced Settings (Optional):** Tweak advanced sampler configurations like Temperature, Top-p, and Repetition Penalty to adjust output variations.
+4. **Execute:** Click **Run Inference** to pass parameters to the backend. The results will immediately start streaming into the **Raw Output Stream** viewport.
 
 ### **License and Source**
 
+* **License:** [Apache License 2.0](https://github.com/PRITHIVSAKTHIUR/Qwen3-VL-abliterated-MAX-Fast/blob/main/LICENSE.txt)
 * **GitHub Repository:** [https://github.com/PRITHIVSAKTHIUR/Qwen3-VL-abliterated-MAX-Fast.git](https://github.com/PRITHIVSAKTHIUR/Qwen3-VL-abliterated-MAX-Fast.git)

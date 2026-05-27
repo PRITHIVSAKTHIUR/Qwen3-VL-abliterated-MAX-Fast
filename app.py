@@ -23,7 +23,7 @@ MAX_INPUT_TOKEN_LENGTH = int(os.getenv("MAX_INPUT_TOKEN_LENGTH", "4096"))
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 DTYPE = torch.float16 if torch.cuda.is_available() else torch.float32
-ATTN_IMPL = "kernels-community/flash-attn3" if torch.cuda.is_available() else "eager"
+ATTN_IMPL = "kernels-community/flash-attn2" if torch.cuda.is_available() else "eager"
 
 print("CUDA_VISIBLE_DEVICES=", os.environ.get("CUDA_VISIBLE_DEVICES"))
 print("torch.__version__ =", torch.__version__)
